@@ -2,29 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GPA Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator - Lab 2</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .course-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #fafafa;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+
+        input, select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-add {
+            background-color: #27ae60;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .btn-add:hover { background-color: #219150; }
+
+        .btn-submit {
+            background-color: #3498db;
+            color: white;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        .btn-submit:hover { background-color: #2980b9; }
+
+        .btn-remove {
+            background-color: #e74c3c;
+            color: white;
+            flex: 0;
+        }
+    </style>
 </head>
 <body>
+
+<div class="container">
     <h1>GPA Calculator</h1>
-    <form action="calculate.php" method="post" onsubmit="return validateForm();">
-        <div id="courses">
+    
+    <form action="calculate.php" method="post" id="gpaForm">
+        <div id="courses-container">
             <div class="course-row">
-                <input type="text" name="course[]" placeholder="Course Name" required>
-                <input type="number" name="credits[]" placeholder="Credits" min="1" required>
+                <input type="text" name="course[]" placeholder="Course Name (e.g. Maths)" required>
+                <input type="number" name="credits[]" placeholder="Credits" min="1" step="1" required>
                 <select name="grade[]">
-                    <option value="4.0">A</option>
-                    <option value="3.0">B</option>
-                    <option value="2.0">C</option>
-                    <option value="1.0">D</option>
-                    <option value="0.0">F</option>
+                    <option value="4.0">A (Excellent)</option>
+                    <option value="3.0">B (Good)</option>
+                    <option value="2.0">C (Average)</option>
+                    <option value="1.0">D (Below Average)</option>
+                    <option value="0.0">F (Fail)</option>
                 </select>
             </div>
         </div>
-        <br>
-        <button type="button" onclick="addCourse()">+ Add Course</button>
-        <input type="submit" value="Calculate GPA">
+
+        <button type="button" class="btn-add" onclick="addRow()">+ Add Another Course</button>
+        <button type="submit" class="btn-submit">Calculate My GPA</button>
     </form>
+</div>
+
+<script>
+    function addRow() {
+        const container = document.getElementById('courses-container');
+        const newRow = document.createElement('div');
+        newRow.className = 'course-row';
+        newRow.innerHTML = `
+            <input type="text" name="course[]" placeholder="Course Name" required>
+            <input type="number" name="credits[]" placeholder="Credits" min="1" step="1" required>
+            <select name="grade[]">
+                <option value="4.0">A</option>
+                <option value="3.0">B</option>
+                <option value="2.0">C</option>
+                <option value="1.0">D</option>
+                <option value="0.0">F</option>
+            </select>
+            <button type="button" class="btn-remove" onclick="this.parentElement.remove()">X</button>
+        `;
+        container.appendChild(newRow);
+    }
+</script>
+
 </body>
 </html>
