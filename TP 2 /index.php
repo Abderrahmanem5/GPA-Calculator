@@ -30,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>حاسبة المعدل - ملف مدمج</title>
     <style>
-        /* --- الجزء الثاني: كود CSS (التنسيق) --- */
         body { font-family: Arial; margin: 40px; background-color: #f4f4f4; text-align: center; }
         .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; min-width: 400px; }
         input, select { margin: 10px; padding: 10px; width: 80%; border: 1px solid #ddd; border-radius: 5px; }
