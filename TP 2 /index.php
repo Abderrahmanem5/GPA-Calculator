@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($totalCredits > 0) {
         $gpa = $totalPoints / $totalCredits;
-        // نجهز رسالة النتيجة لعرضها في الأسفل
         $result_message = "<div style='background:#d4edda; padding:15px; border-radius:5px; margin-bottom:20px;'>
                             <h3>المعدل المحسوب هو: " . number_format($gpa, 2) . "</h3>
                           </div>";
