@@ -1,0 +1,13 @@
+# Sensitive config
+step4/config.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
