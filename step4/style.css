@@ -1,39 +1,164 @@
+/* =====================================================================
+   GPA Calculator – Step 4 (Bootstrap 4 dark theme + extended UI)
+   ===================================================================== */
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #e9ecef;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  padding-bottom: 60px;
 }
 
-h1 {
-  color: #007BFF;
+/* ---- Typography ---- */
+.card-title { font-weight: 700; color: #e2e8f0; }
+.card-text  { color: #8892a4; }
+.text-muted { color: #8892a4 !important; }
+
+/* ---- Cards ---- */
+.card {
+  background: #1a1d27 !important;
+  border: 1px solid #2e3248 !important;
+  border-radius: 12px !important;
+  color: #e2e8f0;
+}
+.card-header {
+  background: rgba(108,99,255,.08) !important;
+  border-bottom: 1px solid #2e3248 !important;
+  color: #e2e8f0;
 }
 
-.course-row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
+/* --- Badge --- */
+.badge-primary { background: linear-gradient(135deg,#6c63ff,#8a63ff) !important; }
+
+/* ---- Inputs ---- */
+.form-control {
+  background: #0f1117 !important;
+  border: 1px solid #2e3248 !important;
+  color: #e2e8f0 !important;
+  border-radius: 8px !important;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-control::placeholder { color: #3e4562 !important; }
+.form-control:focus {
+  border-color: #6c63ff !important;
+  box-shadow: 0 0 0 3px rgba(108,99,255,.2) !important;
+  background: #0f1117 !important;
+}
+.form-control option { background: #1a1d27; }
+
+/* ---- Labels ---- */
+label {
+  font-size: .8rem;
+  font-weight: 600;
+  color: #8892a4;
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 
-.course-row input,
-.course-row select {
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* ---- Buttons ---- */
+.btn-primary {
+  background: linear-gradient(135deg,#6c63ff,#8a63ff) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 16px rgba(108,99,255,.4) !important;
+}
+.btn-primary:hover { opacity: .9; box-shadow: 0 6px 24px rgba(108,99,255,.6) !important; }
+
+.btn-outline-secondary {
+  border-color: #2e3248 !important;
+  color: #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+.btn-outline-secondary:hover {
+  border-color: #6c63ff !important;
+  color: #6c63ff !important;
+  background: transparent !important;
 }
 
-table {
-  border-collapse: collapse;
-  margin-top: 16px;
+.btn-outline-info {
+  border-color: #6c63ff !important;
+  color: #6c63ff !important;
+  border-radius: 8px !important;
 }
+.btn-outline-info:hover { background: rgba(108,99,255,.12) !important; }
 
-table th, table td {
-  border: 1px solid #ccc;
-  padding: 8px 14px;
-  text-align: center;
+/* Fix Bootstrap 4 gap: use margin instead of gap */
+.d-flex.gpa-actions { gap: 0; }
+.d-flex.gpa-actions > .btn { margin-right: 10px; }
+.d-flex.gpa-actions > .btn:last-child { margin-right: 0; }
+
+/* ---- Remove row button ---- */
+.remove-row {
+  background: transparent !important;
+  border: 1px solid rgba(255,77,109,.4) !important;
+  color: #ff4d6d !important;
+  border-radius: 8px !important;
+  font-size: .85rem !important;
+  font-weight: 600 !important;
+  transition: background .2s, border-color .2s !important;
+  line-height: 1;
+  padding: 6px 10px !important;
 }
+.remove-row:hover { background: rgba(255,77,109,.12) !important; border-color: #ff4d6d !important; }
 
-table th {
-  background-color: #007BFF;
-  color: white;
+/* ---- Result alerts ---- */
+#result .alert { border-radius: 10px; font-weight: 500; }
+#result .alert-success { background: rgba(0,212,170,.12); border-color: #00d4aa; color: #00d4aa; }
+#result .alert-info    { background: rgba(108,99,255,.12); border-color: #6c63ff; color: #a09bff; }
+#result .alert-warning { background: rgba(245,158,11,.12); border-color: #f59e0b; color: #f59e0b; }
+#result .alert-danger  { background: rgba(255,77,109,.12); border-color: #ff4d6d; color: #ff4d6d; }
+#result .alert strong  { font-size: 1.15rem; }
+
+/* ---- Tables ---- */
+.table { color: #e2e8f0; border-color: #2e3248; }
+.table th, .table td { border-color: #2e3248 !important; }
+.thead-dark th { background-color: #6c63ff !important; border-color: #6c63ff !important; }
+.thead-light th { background: #1a1d27 !important; color: #8892a4 !important; border-color: #2e3248 !important; }
+.table-hover tbody tr:hover { background: rgba(108,99,255,.08) !important; }
+.table-sm td, .table-sm th { padding: .4rem .75rem; }
+
+/* ---- Progress bar ---- */
+.progress { background: #2e3248 !important; border-radius: 8px !important; }
+.progress-bar { font-weight: 600; font-size: .85rem; }
+
+/* ---- Badges ---- */
+.badge-success { background: #00d4aa !important; }
+.badge-info    { background: #6c63ff !important; }
+.badge-warning { background: #f59e0b !important; }
+.badge-danger  { background: #ff4d6d !important; }
+
+/* ---- Modal ---- */
+.modal-content {
+  background: #1a1d27 !important;
+  border: 1px solid #2e3248 !important;
+  color: #e2e8f0;
+}
+.modal-header { border-bottom-color: #2e3248 !important; }
+.modal-footer { border-top-color: #2e3248 !important; }
+.close { color: #e2e8f0 !important; opacity: .7; }
+.close:hover { opacity: 1; }
+
+/* ---- Spinner ---- */
+.spinner-border.text-primary { color: #6c63ff !important; }
+
+/* ---- Outline success (CSV btn) ---- */
+.btn-outline-success {
+  border-color: #00d4aa !important;
+  color: #00d4aa !important;
+  border-radius: 8px !important;
+}
+.btn-outline-success:hover { background: rgba(0,212,170,.12) !important; }
+
+/* ---- History section ---- */
+#historyCard { animation: fadeIn .3s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:none; } }
+
+/* ---- Tooltip ---- */
+.tooltip-inner { background: #2e3248; font-size: .8rem; }
+.bs-tooltip-top .arrow::before { border-top-color: #2e3248 !important; }
+
+/* ---- Responsive ---- */
+@media (max-width: 576px) {
+  .form-row.course-row { flex-wrap: wrap; }
 }

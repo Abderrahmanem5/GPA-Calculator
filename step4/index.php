@@ -18,6 +18,8 @@ session_start();
   <title>GPA Calculator – Extended</title>
   <!-- Bootstrap 4 CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -88,7 +90,7 @@ session_start();
           </div>
         </div>
 
-        <div class="d-flex gap-2 mt-2 mb-3">
+        <div class="d-flex gpa-actions mt-2 mb-3">
           <button type="button" id="addCourse" class="btn btn-outline-secondary mr-2">
             + Add Course
           </button>
